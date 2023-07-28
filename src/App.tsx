@@ -1,12 +1,19 @@
 import React from 'react';
-import './index.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import CricketerDetails from './pages/CricketerDetails';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div >
-      <p className='text-3xl font-bold underline'>test</p>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/:cricketer" component={CricketerDetails} />
+        <Route component={NotFound} /> {/* This will handle all unmatched routes */}
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
