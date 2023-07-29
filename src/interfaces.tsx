@@ -4,8 +4,11 @@ export interface Player {
     description: string;
     type: string;
     points: number;
-    dob: Date;
+    dob: number;
+    rank: number | null;
+    age?: number | null;
 }
+
 export interface AllPlayers {
     players: Player[];
 }

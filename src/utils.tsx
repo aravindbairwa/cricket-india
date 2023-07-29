@@ -25,7 +25,7 @@ export function addRankBasedOnPoints(players: Player[]): Player[] {
   return rankedPlayers;
 }
 
-export function getAgeFromTimestamp(timestamp: number): string | null {
+export function getAgeFromTimestamp(timestamp: number): number | null {
     if (!timestamp) {
       return null;
     }
@@ -40,7 +40,7 @@ export function getAgeFromTimestamp(timestamp: number): string | null {
       age--;
     }
   
-    return age.toString();
+    return age;
   }
 
   export function timestampToDateString(timestamp: number): string | null {
