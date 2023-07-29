@@ -1,20 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { getAgeFromTimestamp, timestampToDateString } from "../utils";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 const PlayerDetails = () => {
-  const player = {
-    id: "_1",
-    name: "Virat Kohli",
-    description:
-      "Virat Kohli is an Indian international cricketer and the former captain of the Indian national cricket team who plays as a right-handed batsman for Royal Challengers Bangalore in the IPL and for the Delhi in Indian domestic cricket.",
-    type: "batsman",
-    points: 282,
-    dob: 594691200000,
-    rank: 3,
-  };
+  const { activeCricketer } = useContext(GlobalContext);
 
   return (
     <div className="min-w-full h-[100%]">
@@ -32,7 +24,9 @@ const PlayerDetails = () => {
               sx={{ fontSize: 16, fontWeight: "bolder" }}
               color="#007bff"
             >
-              {player.id.slice(1)}
+              {activeCricketer &&
+                activeCricketer.id &&
+                activeCricketer.id.slice(1)}
             </Typography>
           </div>
 
@@ -48,7 +42,7 @@ const PlayerDetails = () => {
               sx={{ fontSize: 40, fontWeight: "bolder" }}
               color="#fa463b"
             >
-              {player.name}
+              {activeCricketer?.name}
             </Typography>
           </div>
 
@@ -64,7 +58,7 @@ const PlayerDetails = () => {
               sx={{ fontSize: 16, fontWeight: "bolder" }}
               color="#007bff"
             >
-              {player.description}
+              {activeCricketer?.description}
             </Typography>
           </div>
 
@@ -80,7 +74,10 @@ const PlayerDetails = () => {
               sx={{ fontSize: 16, fontWeight: "bolder" }}
               color="#fa463b"
             >
-              {player.type.charAt(0).toUpperCase() + player.type.slice(1)}
+              {activeCricketer?.type
+                ? activeCricketer.type.charAt(0).toUpperCase() +
+                  activeCricketer.type.slice(1)
+                : ""}
             </Typography>
           </div>
 
@@ -96,7 +93,7 @@ const PlayerDetails = () => {
               sx={{ fontSize: 16, fontWeight: "bolder" }}
               color="#fa463b"
             >
-              {player.points}
+              {activeCricketer?.points}
             </Typography>
           </div>
 
@@ -112,7 +109,7 @@ const PlayerDetails = () => {
               sx={{ fontSize: 16, fontWeight: "bolder" }}
               color="#fa463b"
             >
-              {player.rank}
+              {activeCricketer?.rank}
             </Typography>
           </div>
 
@@ -125,7 +122,9 @@ const PlayerDetails = () => {
               DOB:
             </Typography>
             <Typography sx={{ fontSize: 16 }} color="#007bff">
-              {timestampToDateString(player.dob)}
+              {timestampToDateString(
+                activeCricketer?.dob ? activeCricketer.dob : 0
+              )}
             </Typography>
           </div>
           <div className="flex gap-2 items-baseline">
@@ -137,7 +136,9 @@ const PlayerDetails = () => {
               Age:
             </Typography>
             <Typography sx={{ fontSize: 16 }} color="#007bff">
-              {getAgeFromTimestamp(player.dob)}
+              {getAgeFromTimestamp(
+                activeCricketer?.dob ? activeCricketer.dob : 0
+              )}
             </Typography>
           </div>
         </CardContent>
