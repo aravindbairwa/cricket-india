@@ -3,7 +3,12 @@ import Paper from "@mui/material/Paper";
 import { getAgeFromTimestamp } from "../utils";
 import getPlayers, { TPlayer } from "../api-data/get-players";
 import { Player } from "../interfaces";
-import { DataGrid, GridColDef, GridValueGetterParams, GridRenderCellParams } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColDef,
+  GridValueGetterParams,
+  GridRenderCellParams,
+} from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 
 const columns: GridColDef[] = [
@@ -12,7 +17,8 @@ const columns: GridColDef[] = [
     headerName: "Name",
     minWidth: 300,
     renderCell: (params: GridRenderCellParams<String>) => (
-      <Link to={`/${params.value}`}>{params.value}</Link>),
+      <Link to={`/${params.value}`}>{params.value}</Link>
+    ),
     valueGetter: (params: GridValueGetterParams) => `${params.row.name || ""}`,
   },
   { field: "type", headerName: "Type", minWidth: 200 },
@@ -46,12 +52,12 @@ export default function StickyHeadTable() {
 
         let a = fetchedData;
         let b = JSON.parse(JSON.stringify(a));
-       rows =  b.map((cricketer: Player) => {
+        rows = b.map((cricketer: Player) => {
           const cricketersAge = getAgeFromTimestamp(cricketer.dob);
           return {
             ...cricketer,
-              age: cricketersAge}
-            
+            age: cricketersAge,
+          };
         });
       } catch (error) {
         console.error(error);
@@ -60,7 +66,6 @@ export default function StickyHeadTable() {
 
     getAllCricketers();
   }, []);
-
 
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
@@ -75,6 +80,5 @@ export default function StickyHeadTable() {
         pageSizeOptions={[5, 10]}
       />
     </Paper>
-   
   );
 }

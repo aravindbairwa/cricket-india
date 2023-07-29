@@ -1,4 +1,10 @@
-import React, { createContext, useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import getPlayers, { TPlayer } from "../api-data/get-players";
 import { Player } from "../interfaces";
 import { getAgeFromTimestamp } from "../utils";
@@ -17,13 +23,24 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
   const [param, setParam] = useState<String>();
   const rows = useRef(null);
 
-  const getPlayerDetailsByName = useCallback((fullname: String) => {
-    let finalObj =  (updatedPlayers.filter((item) => fullname === item.name))[0];
-    setActiveCricketer(finalObj);
-  },[updatedPlayers]);
-  const getPlayersOfSameType = useCallback((type: string ) => {
-     setPlayersOfSameType([...updatedPlayers.filter((item) => type === item.type ).filter(item => activeCricketer?.name !== item.name)])
-  },[activeCricketer?.name, updatedPlayers]);
+  const getPlayerDetailsByName = useCallback(
+    (fullname: String) => {
+      let finalObj = updatedPlayers.filter((item) => fullname === item.name)[0];
+      setActiveCricketer(finalObj);
+    },
+    [updatedPlayers]
+  );
+
+  const getPlayersOfSameType = useCallback(
+    (type: string) => {
+      setPlayersOfSameType([
+        ...updatedPlayers
+          .filter((item) => type === item.type)
+          .filter((item) => activeCricketer?.name !== item.name),
+      ]);
+    },
+    [activeCricketer?.name, updatedPlayers]
+  );
 
   useEffect(() => {
     const getAllCricketers = async () => {
@@ -51,25 +68,30 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     getAllCricketers();
   }, []);
 
-
-  useEffect(()=> {
-    if(param)
-    getPlayerDetailsByName(param);
-    if(activeCricketer?.type)
-    getPlayersOfSameType(activeCricketer?.type)
-  }, [param,activeCricketer?.type, getPlayerDetailsByName, getPlayersOfSameType])
+  useEffect(() => {
+    if (param) getPlayerDetailsByName(param);
+    if (activeCricketer?.type) getPlayersOfSameType(activeCricketer?.type);
+  }, [
+    param,
+    activeCricketer?.type,
+    getPlayerDetailsByName,
+    getPlayersOfSameType,
+  ]);
 
   return (
     <GlobalContext.Provider
-      value={
-        {cricketers,
+      value={{
+        cricketers,
         getPlayerDetailsByName,
         getPlayersOfSameType,
-        updatedPlayers, setUpdatedPlayers,
-        playersOfSameType, setParam,
-        activeCricketer, setActiveCricketer,
-        rows}
-      }
+        updatedPlayers,
+        setUpdatedPlayers,
+        playersOfSameType,
+        setParam,
+        activeCricketer,
+        setActiveCricketer,
+        rows,
+      }}
     >
       {children}
     </GlobalContext.Provider>

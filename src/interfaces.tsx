@@ -1,22 +1,22 @@
 export interface Player {
-    id: string;
-    name: string;
-    description: string;
-    type: string;
-    points: number;
-    dob: number;
-    rank: number | null;
-    age?: number | null;
+  id: string;
+  name: string;
+  description: string;
+  type: string;
+  points: number;
+  dob: number;
+  rank: number | null;
+  age?: number | null;
 }
 
 export interface AllPlayers {
-    players: Player[];
+  players: Player[];
 }
 
 export interface SimilarPlayer {
-    name: string;
-    points: number;
+  name: string;
+  points: number;
 }
 export interface SimilarPlayers {
-    similarPlayers: SimilarPlayer[];
+  similarPlayers: SimilarPlayer[];
 }
