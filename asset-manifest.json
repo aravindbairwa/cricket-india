@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cricket-india/static/css/main.85f46efe.css",
-    "main.js": "/cricket-india/static/js/main.c44c6377.js",
-    "static/js/787.74ebf75e.chunk.js": "/cricket-india/static/js/787.74ebf75e.chunk.js",
-    "index.html": "/cricket-india/index.html",
-    "main.85f46efe.css.map": "/cricket-india/static/css/main.85f46efe.css.map",
-    "main.c44c6377.js.map": "/cricket-india/static/js/main.c44c6377.js.map",
-    "787.74ebf75e.chunk.js.map": "/cricket-india/static/js/787.74ebf75e.chunk.js.map"
+    "main.css": "/static/css/main.85f46efe.css",
+    "main.js": "/static/js/main.254f566a.js",
+    "static/js/787.74ebf75e.chunk.js": "/static/js/787.74ebf75e.chunk.js",
+    "index.html": "/index.html",
+    "main.85f46efe.css.map": "/static/css/main.85f46efe.css.map",
+    "main.254f566a.js.map": "/static/js/main.254f566a.js.map",
+    "787.74ebf75e.chunk.js.map": "/static/js/787.74ebf75e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.85f46efe.css",
-    "static/js/main.c44c6377.js"
+    "static/js/main.254f566a.js"
   ]
 }
