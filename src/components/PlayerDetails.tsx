@@ -9,7 +9,7 @@ const PlayerDetails = () => {
   const { activeCricketer } = useContext(GlobalContext);
 
   return (
-    <div className="min-w-full h-[100%]">
+    <div className="min-w-full h-[100%] z-10">
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <div className="flex gap-2 items-baseline">

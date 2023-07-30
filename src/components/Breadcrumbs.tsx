@@ -7,7 +7,7 @@ export default function BasicBreadcrumbs() {
     const { cricketer } = useParams<{ cricketer: string }>();
 
   return (
-    <div role="presentation z-10">
+    <div className="z-10">
       <Breadcrumbs aria-label="breadcrumb">
         <Link underline="hover" color="#efefef" href="/">
          Cricketers

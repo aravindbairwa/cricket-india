@@ -17,14 +17,26 @@ const SimilarPlayers = () => {
   return (
     <>
       {players && players.length ? (
-        <h1 className="text-center text-4xl">Similar Players</h1>
+        <Typography
+          sx={{
+            fontSize: 36,
+            fontWeight: "bold",
+            minWidth: "100px",
+            textAlign: "center",
+            zIndex: 10,
+          }}
+          color="#efefef"
+          gutterBottom
+        >
+          Similar Players
+        </Typography>
       ) : null}
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center z-10">
         {players &&
           players.map((player) => (
             <Link
               to={`/${player.name}`}
-              key={player.points}
+              key={player.id}
               className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-4"
             >
               <Card>
