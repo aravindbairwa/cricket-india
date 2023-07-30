@@ -1,4 +1,4 @@
-import { Player, SimilarPlayer, SimilarPlayers } from "./interfaces";
+import { Player, SimilarPlayer } from "./interfaces";
 
 export function filterCricketersByType(objects: Player[], type: string): Player[] {
   return objects.filter((obj) => obj.type === type);

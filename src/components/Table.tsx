@@ -50,11 +50,13 @@ const columns: GridColDef[] = [
 ];
 
 let rows: Player[] = [];
+
 let tableInitialState: Object = {
   pagination: {
     paginationModel: { page: 0, pageSize: 10 },
   },
 };
+
 let activeSortingAndFilters = {
   sorting: {
     sortModel: [
@@ -81,7 +83,6 @@ let activeSortingAndFilters = {
 export default function StickyHeadTable() {
   const [, setCricketers] = useState<TPlayer[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-
 
   const getAllCricketers = useCallback(async () => {
     try {
