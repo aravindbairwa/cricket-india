@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/cricket-india/static/css/main.85f46efe.css",
-    "main.js": "/cricket-india/static/js/main.cea1c420.js",
+    "main.js": "/cricket-india/static/js/main.ff2d0816.js",
     "static/js/787.74ebf75e.chunk.js": "/cricket-india/static/js/787.74ebf75e.chunk.js",
     "index.html": "/cricket-india/index.html",
     "main.85f46efe.css.map": "/cricket-india/static/css/main.85f46efe.css.map",
-    "main.cea1c420.js.map": "/cricket-india/static/js/main.cea1c420.js.map",
+    "main.ff2d0816.js.map": "/cricket-india/static/js/main.ff2d0816.js.map",
     "787.74ebf75e.chunk.js.map": "/cricket-india/static/js/787.74ebf75e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.85f46efe.css",
-    "static/js/main.cea1c420.js"
+    "static/js/main.ff2d0816.js"
   ]
 }
