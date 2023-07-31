@@ -3,10 +3,17 @@ import CricketIndia from "../components/CricketIndia";
 import Table from "../components/Table";
 
 const Home: React.FC = () => {
-  const [showAnimation, setShowAnimation] = useState<boolean>(true);
+  // Ensures the gsap animation is only visible when the user first arrives at the home page
+   const [showAnimation, setShowAnimation] = useState(() => {
+    const localStorageValue = localStorage.getItem('showAnimation');
+    return localStorageValue === null;
+  });
 
   useEffect(() => {
-    setTimeout(() => setShowAnimation(false), 4200);
+    setTimeout(() => {
+      setShowAnimation(false)
+      localStorage.setItem('showAnimation', 'false');
+    }, 4200);
   }, [showAnimation]);
 
   return (
